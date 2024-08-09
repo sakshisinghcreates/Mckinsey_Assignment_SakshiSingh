@@ -8,15 +8,22 @@ import { ApiService } from '../../services/api.service';
 })
 export class CandidateListComponent implements OnInit {
   candidates: any[] = [];
+  sortBy: string = 'createdDate'; // Default sorting criterion
 
   constructor(private apiService: ApiService) {}
 
   ngOnInit() {
     this.apiService.getCandidates().subscribe(response => {
       this.candidates = response;
+      this.sortCandidates(this.sortBy);
     }, error => {
       console.error(error);
     });
   }
+
+  sortCandidates(by: string) {
+    this.candidates.sort((a, b) => (a[by] > b[by] ? 1 : -1));
+  }
 }
+
 

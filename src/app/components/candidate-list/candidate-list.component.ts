@@ -1,12 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-candidate-list',
-  standalone: true,
-  imports: [],
   templateUrl: './candidate-list.component.html',
-  styleUrl: './candidate-list.component.scss'
+  styleUrls: ['./candidate-list.component.css']
 })
-export class CandidateListComponent {
+export class CandidateListComponent implements OnInit {
+  candidates: any[] = [];
 
+  constructor(private apiService: ApiService) {}
+
+  ngOnInit() {
+    this.apiService.getCandidates().subscribe(response => {
+      this.candidates = response;
+    }, error => {
+      console.error(error);
+    });
+  }
 }
+

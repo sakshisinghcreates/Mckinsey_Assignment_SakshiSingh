@@ -1,27 +1,44 @@
-# AssessmentManagerFrontend
+# Assessment Manager Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.4.
+## Introduction
+This project is an Angular application for managing assessments. It includes features for handling candidates and questions, with role-based access control.
 
-## Development server
+## Setting Up the Development Environment
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1. **Install Node.js and npm**:
+   - Download and install Node.js from [nodejs.org](https://nodejs.org/). This will also install npm (Node Package Manager).
 
-## Code scaffolding
+2. **Clone the Repository**:
+   - Open your terminal or PowerShell.
+   - Run: `git clone <repository-url>` (replace `<repository-url>` with the URL of your GitHub repository).
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+3. **Navigate to the Project Directory**:
+   - Run: `cd assessment-manager-frontend`
 
-## Build
+4. **Install Dependencies**:
+   - Run: `npm install` to install all required packages.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Running the Application
 
-## Running unit tests
+1. **Start the Development Server**:
+   - Run: `ng serve`
+   - Open your web browser and go to `http://localhost:4200` to view the application.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Testing the Application
 
-## Running end-to-end tests
+1. **Run Unit Tests**:
+   - Run: `ng test`
+   - This will execute the unit tests and show the results in the terminal.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Project Structure
 
-## Further help
+- `src/app/app.component.ts`: Main application component.
+- `src/app/app.routes.ts`: Application routing configuration.
+- `src/app/question`: Contains components and modules related to questions.
+- `src/app/candidate`: Contains components and modules related to candidates.
+- `src/app/services`: Contains services used by the application.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Additional Notes
+
+- Make sure to check the application in different browsers to ensure compatibility.
+

@@ -24,5 +24,11 @@ export class QuestionListComponent implements OnInit {
   sortQuestions(by: string) {
     this.questions.sort((a, b) => (a[by] > b[by] ? 1 : -1));
   }
+
+  onSortChange(event: Event) {
+    const target = event.target as HTMLSelectElement;
+    this.sortBy = target.value;
+    this.sortQuestions(this.sortBy);
+  }
 }
 

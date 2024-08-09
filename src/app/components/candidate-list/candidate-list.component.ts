@@ -24,6 +24,13 @@ export class CandidateListComponent implements OnInit {
   sortCandidates(by: string) {
     this.candidates.sort((a, b) => (a[by] > b[by] ? 1 : -1));
   }
+
+  onSortChange(event: Event) {
+    const target = event.target as HTMLSelectElement;
+    this.sortBy = target.value;
+    this.sortCandidates(this.sortBy);
+  }
 }
+
 
 

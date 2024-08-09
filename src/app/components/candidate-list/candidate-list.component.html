@@ -1,13 +1,6 @@
-<div>
-    <label for="sortBy">Sort By:</label>
-    <select id="sortBy" (change)="sortCandidates($event.target.value)">
-      <option value="createdDate">Created Date</option>
-      <!-- Add more options if needed -->
-    </select>
-  </div>
-  <ul>
-    <li *ngFor="let candidate of candidates">
-      {{ candidate.name }} - {{ candidate.createdDate }}
-    </li>
-  </ul>
+<select id="sortBy" (change)="onSortChange($event)">
+    <option value="createdDate">Created Date</option>
+    <option value="name">Name</option>
+    <!-- Add more sorting options as needed -->
+  </select>
   

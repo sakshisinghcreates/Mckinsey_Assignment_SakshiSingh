@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { tap, catchError } from 'rxjs/operators';
+import { map, catchError, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -47,15 +47,23 @@ export class ApiService {
   }
 
   // Get all questions
-  getQuestions(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/questions`).pipe(
+  getQuestions(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/questions`).pipe(
+      map(response => response.map(question => ({
+        ...question,
+        lastUpdated: new Date(question.lastUpdated) // Ensure date is parsed correctly
+      }))),
       catchError(this.handleError)
     );
   }
 
   // Get all candidates
-  getCandidates(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/candidates`).pipe(
+  getCandidates(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/candidates`).pipe(
+      map(response => response.map(candidate => ({
+        ...candidate,
+        createdDate: new Date(candidate.createdDate) // Ensure date is parsed correctly
+      }))),
       catchError(this.handleError)
     );
   }
@@ -108,5 +116,6 @@ export class ApiService {
     return throwError(error);
   }
 }
+
 
 

@@ -1,13 +1,7 @@
-<div>
-    <label for="sortBy">Sort By:</label>
-    <select id="sortBy" (change)="sortQuestions($event.target.value)">
-      <option value="lastUpdated">Last Updated</option>
-      <!-- Add more options if needed -->
-    </select>
-  </div>
-  <ul>
-    <li *ngFor="let question of questions">
-      {{ question.title }} - {{ question.lastUpdated }}
-    </li>
-  </ul>
+<select id="sortBy" (change)="onSortChange($event)">
+    <option value="lastUpdated">Last Updated</option>
+    <option value="name">Name</option>
+    <!-- Add more sorting options as needed -->
+  </select>
+  
   

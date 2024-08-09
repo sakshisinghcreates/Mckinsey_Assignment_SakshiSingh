@@ -1,12 +1,25 @@
 import { Component } from '@angular/core';
+import tinymce from 'tinymce';
 
 @Component({
   selector: 'app-question-detail',
-  standalone: true,
-  imports: [],
   templateUrl: './question-detail.component.html',
-  styleUrl: './question-detail.component.scss'
+  styleUrls: ['./question-detail.component.css']
 })
 export class QuestionDetailComponent {
+  editor: any;
 
+  ngOnInit() {
+    this.editor = tinymce.init({
+      selector: '#editor'
+    });
+  }
+
+  saveQuestion() {
+    const content = this.editor.getContent();
+    // Save content to backend
+  }
 }
+
+
+

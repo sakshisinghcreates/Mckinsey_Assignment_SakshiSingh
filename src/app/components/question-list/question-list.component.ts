@@ -8,14 +8,21 @@ import { ApiService } from '../../services/api.service';
 })
 export class QuestionListComponent implements OnInit {
   questions: any[] = [];
+  sortBy: string = 'lastUpdated'; // Default sorting criterion
 
   constructor(private apiService: ApiService) {}
 
   ngOnInit() {
     this.apiService.getQuestions().subscribe(response => {
       this.questions = response;
+      this.sortQuestions(this.sortBy);
     }, error => {
       console.error(error);
     });
   }
+
+  sortQuestions(by: string) {
+    this.questions.sort((a, b) => (a[by] > b[by] ? 1 : -1));
+  }
 }
+
